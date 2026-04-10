@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>✨ For My Dear Friend | A Special Thank You ✨</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f9f3e6 0%, #ffe6f0 40%, #e8eef9 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', 'Poppins', system-ui, 'Quicksand', 'Helvetica Neue', sans-serif;
+      padding: 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* hand-drawn / sketchy vibe background dots */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#c0a0c0 1.2px, transparent 1.2px);
+      background-size: 32px 32px;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    /* unique folded card effect */
+    .friend-card {
+      max-width: 750px;
+      width: 100%;
+      background: #fffef7;
+      border-radius: 32px 32px 48px 48px;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      z-index: 2;
+      position: relative;
+      overflow: hidden;
+      transform: rotate(0deg);
+      animation: gentleRise 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    @keyframes gentleRise {
+      0% { opacity: 0; transform: translateY(35px) scale(0.97); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* playful torn paper edge (unique) */
+    .friend-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 28px;
+      background: repeating-linear-gradient(45deg, #ffe0b5, #ffe0b5 12px, #ffd2a5 12px, #ffd2a5 24px);
+      border-radius: 32px 32px 0 0;
+    }
+
+    /* inner content padding */
+    .card-inner {
+      padding: 2rem 2rem 2.2rem;
+      position: relative;
+    }
+
+    /* decorative sticky tape effect (unique) */
+    .tape {
+      position: absolute;
+      top: -8px;
+      right: 40px;
+      width: 70px;
+      height: 32px;
+      background: rgba(245, 235, 190, 0.85);
+      transform: rotate(6deg);
+      border-radius: 4px 12px 4px 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 5;
+      backdrop-filter: blur(1px);
+      border: 1px solid #f7e5b5;
+    }
+    .tape::after {
+      content: '✧';
+      position: absolute;
+      top: 4px;
+      left: 28px;
+      font-size: 16px;
+      color: #b97f44;
+      opacity: 0.6;
+    }
+
+    /* header with bestie energy */
+    .friend-header {
+      text-align: center;
+      margin-bottom: 1.6rem;
+      position: relative;
+    }
+
+    .icon-bunch {
+      font-size: 3.2rem;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.1));
+    }
+    .icon-bunch span {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      animation: bounceGentle 2s infinite;
+    }
+    .icon-bunch span:nth-child(2) { animation-delay: 0.2s; }
+    .icon-bunch span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounceGentle {
+      0%,100%{ transform: translateY(0px); }
+      50%{ transform: translateY(-5px); }
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #4a2e3b;
+      letter-spacing: -0.3px;
+      margin: 0.5rem 0 0.2rem;
+      background: linear-gradient(125deg, #a15c6e, #d4896a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .sub {
+      font-size: 0.9rem;
+      background: #f8e3df;
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      border-radius: 60px;
+      color: #ad6a6a;
+      font-weight: 600;
+    }
+
+    /* main thank you note — friend zone but deeply heartfelt */
+    .letter-body {
+      background: #fffaf5;
+      border-radius: 28px;
+      padding: 1.5rem 1.8rem;
+      margin: 1rem 0 1.2rem;
+      box-shadow: inset 0 0 0 1px #fff0e4, 0 6px 14px rgba(0, 0, 0, 0.02);
+      border-left: 8px solid #f5bc9c;
+    }
+
+    .letter-body p {
+      font-size: 1.25rem;
+      line-height: 1.55;
+      color: #2c2b36;
+      font-weight: 500;
+    }
+
+    .friend-highlight {
+      background: linear-gradient(120deg, #ffe3c6, #fff0dd);
+      padding: 0.1rem 0.3rem;
+      border-radius: 12px;
+      font-weight: 700;
+      color: #b95f3a;
+      display: inline-block;
+    }
+
+    /* unique "things i appreciate" — polaroid style grid */
+    .appreciation-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+
+    .polaroid {
+      background: #ffffff;
+      padding: 12px 12px 8px 12px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s;
+      transform: rotate(var(--rot, 0deg));
+      width: 110px;
+      text-align: center;
+      border: 1px solid #fdebd0;
+    }
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.02);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+    }
+    .polaroid .emoji-big {
+      font-size: 2.4rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .polaroid .caption {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #ad7a5c;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* friend quote section */
+    .quote-block {
+      background: #fef2e8;
+      border-radius: 50px 20px 50px 20px;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      margin: 1rem 0;
+      font-style: normal;
+      font-weight: 500;
+      color: #5a3e44;
+      border: 1px solid #ffddc4;
+    }
+    .quote-block q {
+      font-size: 1.1rem;
+      quotes: "“" "”" "‘" "’";
+    }
+    .quote-author {
+      font-size: 0.8rem;
+      margin-top: 6px;
+      opacity: 0.7;
+    }
+
+    /* friendship signature */
+    .friend-signature {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 1.8rem;
+      gap: 16px;
+      border-top: 2px dashed #f2cfb6;
+      padding-top: 1.5rem;
+    }
+    .signature-text {
+      font-family: 'Segoe UI', 'Caveat', cursive;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #9f6e54;
+      display: flex;
+      flex-direction: column;
+    }
+    .signature-text small {
+      font-size: 0.7rem;
+      font-family: monospace;
+      letter-spacing: 1px;
+      color: #ba8b6e;
+    }
+    .friend-btn {
+      background: #edd9cc;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #583c2e;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      font-family: inherit;
+    }
+    .friend-btn:hover {
+      background: #f5cfbc;
+      transform: scale(1.02);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    /* floating notes (surprise unique effect) */
+    .floating-note {
+      position: fixed;
+      pointer-events: none;
+      font-size: 1.2rem;
+      z-index: 200;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
+      animation: flyNote 1.4s ease-out forwards;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    @keyframes flyNote {
+      0% { opacity: 1; transform: translateY(0) scale(0.7); }
+      100% { opacity: 0; transform: translateY(-90px) scale(1.1); }
+    }
+
+    /* cute toast */
+    .friend-toast {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #fff4eb;
+      backdrop-filter: blur(14px);
+      color: #884c3a;
+      padding: 0.7rem 1.5rem;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      z-index: 300;
+      transition: transform 0.25s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      border: 1px solid #ffcdaf;
+      font-family: monospace;
+      letter-spacing: 0.5px;
+    }
+    .friend-toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 550px) {
+      .card-inner { padding: 1.2rem; }
+      h1 { font-size: 2rem; }
+      .letter-body p { font-size: 1rem; }
+      .polaroid { width: 85px; }
+      .polaroid .emoji-big { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="friend-card">
+  <div class="tape"></div>
+  <div class="card-inner">
+    <div class="friend-header">
+      <div class="icon-bunch">
+        <span>🌸</span><span>🍃</span><span>💌</span><span>☕</span>
+      </div>
+      <h1>for my dear friend</h1>
+      <div class="sub">a little thank you · from my heart to yours</div>
+    </div>
+
+    <div class="letter-body">
+      <p>
+        Hey <span class="friend-highlight">you</span> — my amazing, wonderful friend. 
+        I just wanted to say <strong>thank you</strong>, from that silly part of my soul that you always understand.
+        You didn’t just <em>help</em> me; you stood by me without making me feel small. 
+        You listened, you laughed with me, and you gave me strength when I needed it most. 
+        This isn't a grand romantic gesture — it’s just a genuine, warm, <strong>friend-to-friend</strong> hug.
+        🤍
+      </p>
+    </div>
+
+    <!-- unique polaroid grid: things only a true friend does -->
+    <div class="appreciation-grid">
+      <div class="polaroid" style="--rot: -1.5deg">
+        <div class="emoji-big">🗣️</div>
+        <div class="caption">Real talks</div>
+      </div>
+      <div class="polaroid" style="--rot: 2deg">
+        <div class="emoji-big">🤝</div>
+        <div class="caption">had my back</div>
+      </div>
+      <div class="polaroid" style="--rot: -0.5deg">
+        <div class="emoji-big">🎨</div>
+        <div class="caption">inspired me</div>
+      </div>
+      <div class="polaroid" style="--rot: 1deg">
+        <div class="emoji-big">🌼</div>
+        <div class="caption">made me smile</div>
+      </div>
+      <div class="polaroid" style="--rot: -2deg">
+        <div class="emoji-big">✨</div>
+        <div class="caption">believed in me</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <q>Friendship isn't about who you've known the longest — it's about who walked into your life and said, "I'm here for you, no strings attached."</q>
+      <div class="quote-author">— that's you, my friend</div>
+    </div>
+
+    <div class="friend-signature">
+      <div class="signature-text">
+        with endless gratitude 💫 <small>your grateful friend</small>
+      </div>
+      <button class="friend-btn" id="friendshipGlowBtn">
+        🍃 send friend love 🍃
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="friendToast" class="friend-toast">🌸 thanks for being you, friend! 🌸</div>
+
+<script>
+  (function() {
+    const card = document.querySelector('.friend-card');
+    const btn = document.getElementById('friendshipGlowBtn');
+    const toastEl = document.getElementById('friendToast');
+    
+    let toastTimer = null;
+
+    function showFriendlyMessage(msg) {
+      if (toastTimer) clearTimeout(toastTimer);
+      toastEl.textContent = msg || "💗 you're a gift as a friend! 💗";
+      toastEl.classList.add('show');
+      toastTimer = setTimeout(() => {
+        toastEl.classList.remove('show');
+      }, 2600);
+    }
+    
+    // create floating note (text snippet)
+    function createFloatingNote(text, x, y) {
+      const note = document.createElement('div');
+      note.className = 'floating-note';
+      note.innerText = text;
+      note.style.left = x + 'px';
+      note.style.top = y + 'px';
+      note.style.fontSize = (Math.random() * 14 + 16) + 'px';
+      const pastelColors = ['#d47f6a', '#b78c6f', '#aa7c8c', '#7c9e7a', '#e3a87c'];
+      note.style.color = pastelColors[Math.floor(Math.random() * pastelColors.length)];
+      note.style.fontWeight = '600';
+      note.style.whiteSpace = 'nowrap';
+      document.body.appendChild(note);
+      setTimeout(() => note.remove(), 1400);
+    }
+    
+    // burst of tiny hearts / friendly icons
+    function burstFriendEmojis(centerX, centerY, count = 16) {
+      const emojis = ['🌸', '🍃', '💌', '🤍', '✨', '🌼', '☕', '🎈', '🌟', '💫'];
+      for (let i = 0; i < count; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const radius = Math.random() * 80 + 15;
+        const offX = Math.cos(angle) * radius;
+        const offY = Math.sin(angle) * radius;
+        const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+        setTimeout(() => {
+          createFloatingNote(emoji, centerX + offX, centerY + offY);
+        }, i * 35);
+      }
+    }
+    
+    // gentle sparkle circles (soft dots)
+    function createSoftSparkle(x, y) {
+      const spark = document.createElement('div');
+      spark.style.position = 'fixed';
+      spark.style.width = Math.random() * 12 + 6 + 'px';
+      spark.style.height = spark.style.width;
+      spark.style.borderRadius = '50%';
+      spark.style.backgroundColor = `hsl(${Math.random() * 30 + 20}, 80%, 70%)`;
+      spark.style.pointerEvents = 'none';
+      spark.style.zIndex = '999';
+      spark.style.left = (x - 8) + 'px';
+      spark.style.top = (y - 8) + 'px';
+      spark.style.opacity = '0.8';
+      spark.style.filter = 'blur(1px)';
+      spark.style.transition = 'transform 0.5s ease-out, opacity 0.6s';
+      document.body.appendChild(spark);
+      requestAnimationFrame(() => {
+        spark.style.transform = `scale(1.6) translate(${(Math.random() - 0.5) * 40}px, ${(Math.random() - 0.5) * 30 - 20}px)`;
+        spark.style.opacity = '0';
+      });
+      setTimeout(() => spark.remove(), 600);
+    }
+    
+    function burstSparklesAround(x, y, amount = 10) {
+      for (let i = 0; i < amount; i++) {
+        setTimeout(() => {
+          createSoftSparkle(x + (Math.random() - 0.5) * 80, y + (Math.random() - 0.5) * 70);
+        }, i * 25);
+      }
+    }
+    
+    // generate handwritten style random messages (friend specific)
+    const friendThanksMessages = [
+      "🍃 So glad we're friends! 🍃",
+      "💬 Thank you for being real 💬",
+      "🌼 You made everything lighter 🌼",
+      "📖 Grateful for every chat 📖",
+      "💕 Friends like you are rare 💕",
+      "🎈 You're the best, no drama ever 🎈",
+      "☕ Let's celebrate our friendship! ☕",
+      "🌸 Thanks for all the good vibes 🌸"
+    ];
+    
+    // also, a special surprise: additional appreciation floating text on card click (gentle)
+    card.addEventListener('click', (e) => {
+      const rect = card.getBoundingClientRect();
+      if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
+        const x = e.clientX;
+        const y = e.clientY;
+        const randomNote = friendThanksMessages[Math.floor(Math.random() * friendThanksMessages.length)];
+        createFloatingNote(randomNote, x, y);
+        for (let i=0; i<3; i++) {
+          setTimeout(() => createSoftSparkle(x + (Math.random()-0.5)*40, y + (Math.random()-0.5)*30), i*30);
+        }
+      }
+    });
+    
+    // button action: full friend love burst
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const btnRect = btn.getBoundingClientRect();
+      const centerX = btnRect.left + btnRect.width / 2;
+      const centerY = btnRect.top + btnRect.height / 2;
+      
+      // unique effect: floating "thank you friend" notes + emoji burst
+      burstFriendEmojis(centerX, centerY, 24);
+      burstSparklesAround(centerX, centerY, 14);
+      
+      // show custom random message in toast
+      const msg = friendThanksMessages[Math.floor(Math.random() * friendThanksMessages.length)];
+      showFriendlyMessage(msg + " 🌟");
+      
+      // additional friend-special effect: change quote background for a sec
+      const quoteBlock = document.querySelector('.quote-block');
+      quoteBlock.style.transition = 'background 0.2s';
+      quoteBlock.style.backgroundColor = '#fff0e2';
+      setTimeout(() => { quoteBlock.style.backgroundColor = ''; }, 300);
+      
+      // wiggle the polaroids for fun
+      const polaroids = document.querySelectorAll('.polaroid');
+      polaroids.forEach(p => {
+        p.style.transform = 'rotate(0deg) scale(1.02)';
+        setTimeout(() => {
+          p.style.transform = `rotate(var(--rot, 0deg))`;
+        }, 200);
+      });
+      
+      // also make signature text pop
+      const signText = document.querySelector('.signature-text');
+      signText.style.transform = 'scale(1.02)';
+      signText.style.color = '#bc785a';
+      setTimeout(() => {
+        signText.style.transform = '';
+        signText.style.color = '';
+      }, 300);
+      
+      // create a tiny temporary sticker effect near button
+      const thankSticker = document.createElement('div');
+      thankSticker.innerText = '🤍🤍';
+      thankSticker.style.position = 'fixed';
+      thankSticker.style.left = centerX - 15 + 'px';
+      thankSticker.style.top = centerY - 15 + 'px';
+      thankSticker.style.fontSize = '28px';
+      thankSticker.style.pointerEvents = 'none';
+      thankSticker.style.zIndex = '1000';
+      thankSticker.style.opacity = '0.9';
+      thankSticker.style.transition = 'all 0.6s ease';
+      document.body.appendChild(thankSticker);
+      requestAnimationFrame(() => {
+        thankSticker.style.transform = 'translateY(-50px) scale(0.6)';
+        thankSticker.style.opacity = '0';
+      });
+      setTimeout(() => thankSticker.remove(), 700);
+    });
+    
+    // load effect: friendly welcome toast, also a small floating thanks
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        showFriendlyMessage("💛 Hey friend! This is all for you. 💛");
+      }, 400);
+      
+      // initial gentle sparkles inside card area
+      const cardRect = card.getBoundingClientRect();
+      const cardMidX = cardRect.left + cardRect.width/2;
+      const cardMidY = cardRect.top + cardRect.height/2;
+      for (let i=0; i<8; i++) {
+        setTimeout(() => {
+          createSoftSparkle(cardMidX + (Math.random()-0.5)*150, cardMidY + (Math.random()-0.5)*100);
+        }, i * 70);
+      }
+      
+      // add a unique personal touch: after load, show little floating 'friend' emojis
+      setTimeout(() => {
+        const headerRect = document.querySelector('.friend-header').getBoundingClientRect();
+        burstFriendEmojis(headerRect.left + headerRect.width/2, headerRect.top + 20, 6);
+      }, 800);
+    });
+    
+    // hover effect on polaroids to make them extra friendly
+    const allPolaroids = document.querySelectorAll('.polaroid');
+    allPolaroids.forEach(p => {
+      p.addEventListener('mouseenter', (e) => {
+        const rect = p.getBoundingClientRect();
+        const msg = ['✨ thanks!', '🌸 you rock', '🍃 friend', '💕 true', '🌟 best'];
+        const randomMsg = msg[Math.floor(Math.random() * msg.length)];
+        createFloatingNote(randomMsg, rect.left + rect.width/2, rect.top - 8);
+      });
+    });
+    
+    // also on letter body double click for fun
+    const letter = document.querySelector('.letter-body');
+    letter.addEventListener('dblclick', (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      createFloatingNote("🙌 forever grateful 🙌", x, y);
+      burstSparklesAround(x, y, 5);
+    });
+  })();
+</script>
+</body>
+</html>
