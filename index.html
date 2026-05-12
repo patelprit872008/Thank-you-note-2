@@ -1,606 +1,896 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>✨ For My Dear Friend | A Special Thank You ✨</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>🎂 Happy Birthday Eman | Love Forever ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Dancing+Script:wght@400;700&display=swap');
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #f9f3e6 0%, #ffe6f0 40%, #e8eef9 100%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Segoe UI', 'Poppins', system-ui, 'Quicksand', 'Helvetica Neue', sans-serif;
-      padding: 1.5rem;
-      position: relative;
-      overflow-x: hidden;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* hand-drawn / sketchy vibe background dots */
-    body::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-image: radial-gradient(#c0a0c0 1.2px, transparent 1.2px);
-      background-size: 32px 32px;
-      opacity: 0.2;
-      pointer-events: none;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #1a0b2e 0%, #0a0515 100%);
+        }
 
-    /* unique folded card effect */
-    .friend-card {
-      max-width: 750px;
-      width: 100%;
-      background: #fffef7;
-      border-radius: 32px 32px 48px 48px;
-      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-      z-index: 2;
-      position: relative;
-      overflow: hidden;
-      transform: rotate(0deg);
-      animation: gentleRise 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    }
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
 
-    @keyframes gentleRise {
-      0% { opacity: 0; transform: translateY(35px) scale(0.97); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
+        /* UI Panel */
+        .ui-panel {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            text-align: center;
+            pointer-events: none;
+        }
 
-    /* playful torn paper edge (unique) */
-    .friend-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 28px;
-      background: repeating-linear-gradient(45deg, #ffe0b5, #ffe0b5 12px, #ffd2a5 12px, #ffd2a5 24px);
-      border-radius: 32px 32px 0 0;
-    }
+        .cut-btn {
+            pointer-events: auto;
+            background: linear-gradient(135deg, #e8897a, #d45a6e, #b83a52);
+            border: none;
+            padding: 16px 42px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            border-radius: 60px;
+            color: white;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
 
-    /* inner content padding */
-    .card-inner {
-      padding: 2rem 2rem 2.2rem;
-      position: relative;
-    }
+        .cut-btn:hover { transform: scale(1.05); }
+        .cut-btn:disabled { opacity: 0.6; cursor: not-allowed; animation: none; }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+            50% { box-shadow: 0 10px 45px rgba(184,58,82,0.5); }
+        }
 
-    /* decorative sticky tape effect (unique) */
-    .tape {
-      position: absolute;
-      top: -8px;
-      right: 40px;
-      width: 70px;
-      height: 32px;
-      background: rgba(245, 235, 190, 0.85);
-      transform: rotate(6deg);
-      border-radius: 4px 12px 4px 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      z-index: 5;
-      backdrop-filter: blur(1px);
-      border: 1px solid #f7e5b5;
-    }
-    .tape::after {
-      content: '✧';
-      position: absolute;
-      top: 4px;
-      left: 28px;
-      font-size: 16px;
-      color: #b97f44;
-      opacity: 0.6;
-    }
+        /* Butterfly Button */
+        .butterfly-btn {
+            pointer-events: auto;
+            background: linear-gradient(135deg, #7b2cbf, #9d4edd, #c77dff);
+            border: none;
+            padding: 14px 38px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 60px;
+            color: white;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 8px 25px rgba(157,78,221,0.4);
+            transition: all 0.3s;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .butterfly-btn:hover { transform: scale(1.03); background: linear-gradient(135deg, #9d4edd, #c77dff); }
 
-    /* header with bestie energy */
-    .friend-header {
-      text-align: center;
-      margin-bottom: 1.6rem;
-      position: relative;
-    }
+        /* Love Message Card */
+        .love-card {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 20;
+            background: rgba(0,0,0,0.45);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 15px 25px;
+            text-align: center;
+            animation: slideDown 0.6s ease;
+            border: 1px solid rgba(255,255,255,0.15);
+            max-width: 280px;
+        }
 
-    .icon-bunch {
-      font-size: 3.2rem;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.1));
-    }
-    .icon-bunch span {
-      display: inline-block;
-      transition: transform 0.2s ease;
-      animation: bounceGentle 2s infinite;
-    }
-    .icon-bunch span:nth-child(2) { animation-delay: 0.2s; }
-    .icon-bunch span:nth-child(3) { animation-delay: 0.4s; }
+        .love-card .greeting { 
+            font-size: 1rem; 
+            color: #FFB7C5;
+            letter-spacing: 1px;
+        }
+        
+        .love-card .name { 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            background: linear-gradient(135deg, #FFD6E8, #FF9EAA); 
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            color: transparent; 
+            margin: 5px 0;
+        }
+        
+        .love-card .sweet-message {
+            font-size: 0.85rem;
+            color: #e8d0e0;
+            margin-top: 8px;
+            line-height: 1.4;
+            font-style: italic;
+        }
 
-    @keyframes bounceGentle {
-      0%,100%{ transform: translateY(0px); }
-      50%{ transform: translateY(-5px); }
-    }
+        @keyframes slideDown { 
+            from { opacity: 0; transform: translateY(-50px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
 
-    h1 {
-      font-size: 2.6rem;
-      font-weight: 700;
-      color: #4a2e3b;
-      letter-spacing: -0.3px;
-      margin: 0.5rem 0 0.2rem;
-      background: linear-gradient(125deg, #a15c6e, #d4896a);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+        /* Blow Instruction */
+        .blow-instruction {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: #FFD6E8;
+            font-size: 0.9rem;
+            z-index: 20;
+            pointer-events: none;
+            animation: bounce 1s infinite;
+            white-space: nowrap;
+        }
 
-    .sub {
-      font-size: 0.9rem;
-      background: #f8e3df;
-      display: inline-block;
-      padding: 0.25rem 1rem;
-      border-radius: 60px;
-      color: #ad6a6a;
-      font-weight: 600;
-    }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-5px); }
+        }
 
-    /* main thank you note — friend zone but deeply heartfelt */
-    .letter-body {
-      background: #fffaf5;
-      border-radius: 28px;
-      padding: 1.5rem 1.8rem;
-      margin: 1rem 0 1.2rem;
-      box-shadow: inset 0 0 0 1px #fff0e4, 0 6px 14px rgba(0, 0, 0, 0.02);
-      border-left: 8px solid #f5bc9c;
-    }
+        /* Message Popups */
+        .message-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.94);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease;
+        }
 
-    .letter-body p {
-      font-size: 1.25rem;
-      line-height: 1.55;
-      color: #2c2b36;
-      font-weight: 500;
-    }
+        .popup-content {
+            background: linear-gradient(145deg, #2a1a2e, #1a0a1e);
+            border-radius: 60px;
+            padding: 45px 40px;
+            text-align: center;
+            max-width: 550px;
+            border: 1px solid rgba(255, 158, 170, 0.5);
+            box-shadow: 0 0 60px rgba(184,58,82,0.3);
+            animation: scaleIn 0.6s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
 
-    .friend-highlight {
-      background: linear-gradient(120deg, #ffe3c6, #fff0dd);
-      padding: 0.1rem 0.3rem;
-      border-radius: 12px;
-      font-weight: 700;
-      color: #b95f3a;
-      display: inline-block;
-    }
+        .popup-content h1 { 
+            font-size: 2.5rem; 
+            font-family: 'Dancing Script', cursive; 
+            background: linear-gradient(135deg, #FFD6E8, #FF9EAA); 
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            color: transparent;
+            margin: 15px 0;
+        }
+        
+        .popup-content .message-text { 
+            font-size: 1.15rem; 
+            margin: 25px 0; 
+            line-height: 1.6; 
+            color: #ffe0e7; 
+        }
+        
+        .popup-content .from-name { 
+            font-size: 1.5rem; 
+            font-family: 'Dancing Script', cursive; 
+            color: #FFB7C5; 
+            margin-top: 10px;
+        }
+        
+        .popup-close { 
+            background: linear-gradient(95deg, #d45a6e, #b83a52); 
+            border: none; 
+            padding: 12px 35px; 
+            font-size: 1rem; 
+            font-weight: bold; 
+            border-radius: 50px; 
+            color: white; 
+            cursor: pointer; 
+            margin-top: 20px;
+            transition: all 0.2s;
+        }
+        
+        .popup-close:hover { transform: scale(1.02); }
 
-    /* unique "things i appreciate" — polaroid style grid */
-    .appreciation-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-      margin: 1.5rem 0;
-    }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes scaleIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-    .polaroid {
-      background: #ffffff;
-      padding: 12px 12px 8px 12px;
-      border-radius: 14px;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
-      transition: all 0.2s;
-      transform: rotate(var(--rot, 0deg));
-      width: 110px;
-      text-align: center;
-      border: 1px solid #fdebd0;
-    }
-    .polaroid:hover {
-      transform: rotate(0deg) scale(1.02);
-      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
-    }
-    .polaroid .emoji-big {
-      font-size: 2.4rem;
-      display: block;
-      margin-bottom: 6px;
-    }
-    .polaroid .caption {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #ad7a5c;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+        /* Music Control */
+        .music-control {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 20;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 8px 18px;
+            cursor: pointer;
+            color: #FFB7C5;
+            font-size: 0.8rem;
+            pointer-events: auto;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        
+        .music-control:hover { background: rgba(0,0,0,0.7); }
 
-    /* friend quote section */
-    .quote-block {
-      background: #fef2e8;
-      border-radius: 50px 20px 50px 20px;
-      padding: 1rem 1.5rem;
-      text-align: center;
-      margin: 1rem 0;
-      font-style: normal;
-      font-weight: 500;
-      color: #5a3e44;
-      border: 1px solid #ffddc4;
-    }
-    .quote-block q {
-      font-size: 1.1rem;
-      quotes: "“" "”" "‘" "’";
-    }
-    .quote-author {
-      font-size: 0.8rem;
-      margin-top: 6px;
-      opacity: 0.7;
-    }
+        /* Final Love Badge */
+        .final-love-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 20;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 8px 18px;
+            font-size: 0.8rem;
+            color: #FFB7C5;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
 
-    /* friendship signature */
-    .friend-signature {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 1.8rem;
-      gap: 16px;
-      border-top: 2px dashed #f2cfb6;
-      padding-top: 1.5rem;
-    }
-    .signature-text {
-      font-family: 'Segoe UI', 'Caveat', cursive;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #9f6e54;
-      display: flex;
-      flex-direction: column;
-    }
-    .signature-text small {
-      font-size: 0.7rem;
-      font-family: monospace;
-      letter-spacing: 1px;
-      color: #ba8b6e;
-    }
-    .friend-btn {
-      background: #edd9cc;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #583c2e;
-      cursor: pointer;
-      transition: all 0.25s;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      font-family: inherit;
-    }
-    .friend-btn:hover {
-      background: #f5cfbc;
-      transform: scale(1.02);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-    }
-
-    /* floating notes (surprise unique effect) */
-    .floating-note {
-      position: fixed;
-      pointer-events: none;
-      font-size: 1.2rem;
-      z-index: 200;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
-      animation: flyNote 1.4s ease-out forwards;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    @keyframes flyNote {
-      0% { opacity: 1; transform: translateY(0) scale(0.7); }
-      100% { opacity: 0; transform: translateY(-90px) scale(1.1); }
-    }
-
-    /* cute toast */
-    .friend-toast {
-      position: fixed;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%) translateY(80px);
-      background: #fff4eb;
-      backdrop-filter: blur(14px);
-      color: #884c3a;
-      padding: 0.7rem 1.5rem;
-      border-radius: 100px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      z-index: 300;
-      transition: transform 0.25s ease;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      border: 1px solid #ffcdaf;
-      font-family: monospace;
-      letter-spacing: 0.5px;
-    }
-    .friend-toast.show {
-      transform: translateX(-50%) translateY(0);
-    }
-
-    @media (max-width: 550px) {
-      .card-inner { padding: 1.2rem; }
-      h1 { font-size: 2rem; }
-      .letter-body p { font-size: 1rem; }
-      .polaroid { width: 85px; }
-      .polaroid .emoji-big { font-size: 1.8rem; }
-    }
-  </style>
+        @media (max-width: 700px) {
+            .cut-btn { padding: 12px 30px; font-size: 1.1rem; }
+            .butterfly-btn { padding: 10px 30px; font-size: 1rem; }
+            .popup-content { margin: 20px; padding: 30px 25px; }
+            .popup-content h1 { font-size: 1.8rem; }
+            .blow-instruction { font-size: 0.7rem; bottom: 100px; white-space: nowrap; }
+            .love-card { padding: 10px 18px; max-width: 240px; }
+            .love-card .name { font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
 
-<div class="friend-card">
-  <div class="tape"></div>
-  <div class="card-inner">
-    <div class="friend-header">
-      <div class="icon-bunch">
-        <span>🌸</span><span>🍃</span><span>💌</span><span>☕</span>
-      </div>
-      <h1>for my dear friend</h1>
-      <div class="sub">a little thank you · from my heart to yours</div>
-    </div>
+<div id="canvas-container"></div>
 
-    <div class="letter-body">
-      <p>
-        Hey <span class="friend-highlight">you</span> — my amazing, wonderful friend. 
-        I just wanted to say <strong>thank you</strong>, from that silly part of my soul that you always understand.
-        You didn’t just <em>help</em> me; you stood by me without making me feel small. 
-        You listened, you laughed with me, and you gave me strength when I needed it most. 
-        This isn't a grand romantic gesture — it’s just a genuine, warm, <strong>friend-to-friend</strong> hug.
-        🤍
-      </p>
-    </div>
-
-    <!-- unique polaroid grid: things only a true friend does -->
-    <div class="appreciation-grid">
-      <div class="polaroid" style="--rot: -1.5deg">
-        <div class="emoji-big">🗣️</div>
-        <div class="caption">Real talks</div>
-      </div>
-      <div class="polaroid" style="--rot: 2deg">
-        <div class="emoji-big">🤝</div>
-        <div class="caption">had my back</div>
-      </div>
-      <div class="polaroid" style="--rot: -0.5deg">
-        <div class="emoji-big">🎨</div>
-        <div class="caption">inspired me</div>
-      </div>
-      <div class="polaroid" style="--rot: 1deg">
-        <div class="emoji-big">🌼</div>
-        <div class="caption">made me smile</div>
-      </div>
-      <div class="polaroid" style="--rot: -2deg">
-        <div class="emoji-big">✨</div>
-        <div class="caption">believed in me</div>
-      </div>
-    </div>
-
-    <div class="quote-block">
-      <q>Friendship isn't about who you've known the longest — it's about who walked into your life and said, "I'm here for you, no strings attached."</q>
-      <div class="quote-author">— that's you, my friend</div>
-    </div>
-
-    <div class="friend-signature">
-      <div class="signature-text">
-        with endless gratitude 💫 <small>your grateful friend</small>
-      </div>
-      <button class="friend-btn" id="friendshipGlowBtn">
-        🍃 send friend love 🍃
-      </button>
-    </div>
-  </div>
+<div class="love-card">
+    <div class="greeting">💕 My Forever Love 💕</div>
+    <div class="name">Eman</div>
+    <div class="sweet-message">"Every day with you feels like a beautiful dream. You are my sunshine, my peace, and my greatest adventure."</div>
 </div>
 
-<div id="friendToast" class="friend-toast">🌸 thanks for being you, friend! 🌸</div>
+<div class="ui-panel">
+    <button class="cut-btn" id="cutCakeBtn">🔪 CUT THE CAKE 🎂</button>
+    <button class="butterfly-btn" id="butterflyBtn">🦋 Release Butterflies 🦋</button>
+</div>
 
-<script>
-  (function() {
-    const card = document.querySelector('.friend-card');
-    const btn = document.getElementById('friendshipGlowBtn');
-    const toastEl = document.getElementById('friendToast');
+<div class="blow-instruction" id="blowInstruction">
+    💨 Click on the candle flames to blow them! 💨
+</div>
+
+<div class="music-control" id="musicControl">
+    🎵 Play Music
+</div>
+
+<div class="final-love-badge" id="finalLoveBadge" style="display: none;">
+    ✨ Be Loved Eman, From Your Be Loved Prit ✨
+</div>
+
+<script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+        }
+    }
+</script>
+
+<script type="module">
+    import * as THREE from 'three';
+    import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
     
-    let toastTimer = null;
-
-    function showFriendlyMessage(msg) {
-      if (toastTimer) clearTimeout(toastTimer);
-      toastEl.textContent = msg || "💗 you're a gift as a friend! 💗";
-      toastEl.classList.add('show');
-      toastTimer = setTimeout(() => {
-        toastEl.classList.remove('show');
-      }, 2600);
+    // --- Setup Scene ---
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x0a0a1a);
+    scene.fog = new THREE.FogExp2(0x0a0a1a, 0.006);
+    
+    const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(5.5, 3.8, 8.5);
+    camera.lookAt(0, 1.6, 0);
+    
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.setPixelRatio(window.devicePixelRatio);
+    container.appendChild(renderer.domElement);
+    
+    // Postprocessing
+    const renderScene = new RenderPass(scene, camera);
+    const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 0.8, 0.2, 0.6);
+    bloomPass.threshold = 0.2;
+    bloomPass.strength = 0.4;
+    const effectComposer = new EffectComposer(renderer);
+    effectComposer.addPass(renderScene);
+    effectComposer.addPass(bloomPass);
+    
+    // CSS2D Renderer
+    const labelRenderer = new CSS2DRenderer();
+    labelRenderer.setSize(window.innerWidth, window.innerHeight);
+    labelRenderer.domElement.style.position = 'absolute';
+    labelRenderer.domElement.style.top = '0px';
+    labelRenderer.domElement.style.left = '0px';
+    labelRenderer.domElement.style.pointerEvents = 'none';
+    container.appendChild(labelRenderer.domElement);
+    
+    // --- Music ---
+    let bgMusic = null;
+    let isMusicPlaying = false;
+    
+    function initMusic() {
+        bgMusic = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+        bgMusic.loop = true;
+        bgMusic.volume = 0.4;
     }
     
-    // create floating note (text snippet)
-    function createFloatingNote(text, x, y) {
-      const note = document.createElement('div');
-      note.className = 'floating-note';
-      note.innerText = text;
-      note.style.left = x + 'px';
-      note.style.top = y + 'px';
-      note.style.fontSize = (Math.random() * 14 + 16) + 'px';
-      const pastelColors = ['#d47f6a', '#b78c6f', '#aa7c8c', '#7c9e7a', '#e3a87c'];
-      note.style.color = pastelColors[Math.floor(Math.random() * pastelColors.length)];
-      note.style.fontWeight = '600';
-      note.style.whiteSpace = 'nowrap';
-      document.body.appendChild(note);
-      setTimeout(() => note.remove(), 1400);
+    function playMusic() {
+        if (bgMusic && !isMusicPlaying) {
+            bgMusic.play().catch(e => console.log('Audio play blocked'));
+            isMusicPlaying = true;
+            document.getElementById('musicControl').innerHTML = '🎵 Music On 🎵';
+        }
     }
     
-    // burst of tiny hearts / friendly icons
-    function burstFriendEmojis(centerX, centerY, count = 16) {
-      const emojis = ['🌸', '🍃', '💌', '🤍', '✨', '🌼', '☕', '🎈', '🌟', '💫'];
-      for (let i = 0; i < count; i++) {
+    function stopMusic() {
+        if (bgMusic && isMusicPlaying) {
+            bgMusic.pause();
+            isMusicPlaying = false;
+            document.getElementById('musicControl').innerHTML = '🎵 Play Music';
+        }
+    }
+    
+    document.getElementById('musicControl').addEventListener('click', () => {
+        if (!bgMusic) initMusic();
+        if (isMusicPlaying) stopMusic();
+        else playMusic();
+    });
+    
+    // --- Realistic Lighting ---
+    const ambientLight = new THREE.AmbientLight(0x3a3a5a, 0.6);
+    scene.add(ambientLight);
+    
+    const mainLight = new THREE.DirectionalLight(0xffeedd, 1.0);
+    mainLight.position.set(4, 6, 3);
+    mainLight.castShadow = true;
+    mainLight.shadow.mapSize.width = 1024;
+    mainLight.shadow.mapSize.height = 1024;
+    scene.add(mainLight);
+    
+    const fillLight = new THREE.PointLight(0xffaa99, 0.5);
+    fillLight.position.set(-2, 3, 4);
+    scene.add(fillLight);
+    
+    const rimLight = new THREE.PointLight(0xffaa88, 0.4);
+    rimLight.position.set(0, 2.5, -4);
+    scene.add(rimLight);
+    
+    const warmFill = new THREE.PointLight(0xff9966, 0.35);
+    warmFill.position.set(2, 1.5, 2);
+    scene.add(warmFill);
+    
+    // Table surface
+    const tablePlane = new THREE.Mesh(
+        new THREE.CylinderGeometry(3.5, 3.5, 0.1, 32),
+        new THREE.MeshStandardMaterial({ color: 0x8B5A2B, roughness: 0.7, metalness: 0.1 })
+    );
+    tablePlane.position.y = -0.25;
+    tablePlane.receiveShadow = true;
+    tablePlane.castShadow = true;
+    scene.add(tablePlane);
+    
+    const gridHelper = new THREE.GridHelper(12, 20, 0x8866aa, 0x442266);
+    gridHelper.position.y = -0.3;
+    gridHelper.material.transparent = true;
+    gridHelper.material.opacity = 0.15;
+    scene.add(gridHelper);
+    
+    // Background Stars
+    const starCount = 1200;
+    const starGeo = new THREE.BufferGeometry();
+    const starPos = new Float32Array(starCount * 3);
+    for (let i = 0; i < starCount; i++) {
+        starPos[i*3] = (Math.random() - 0.5) * 50;
+        starPos[i*3+1] = (Math.random() - 0.5) * 12 + 1;
+        starPos[i*3+2] = (Math.random() - 0.5) * 35 - 10;
+    }
+    starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+    const starsField = new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0xffccdd, size: 0.04, transparent: true, opacity: 0.5 }));
+    scene.add(starsField);
+    
+    // --- REALISTIC CAKE ---
+    const cakeGroup = new THREE.Group();
+    
+    const spongeMat = new THREE.MeshStandardMaterial({ color: 0xd4a574, roughness: 0.65, metalness: 0.02 });
+    const spongeMat2 = new THREE.MeshStandardMaterial({ color: 0xc9946a, roughness: 0.65, metalness: 0.02 });
+    const spongeMat3 = new THREE.MeshStandardMaterial({ color: 0xbf885e, roughness: 0.65, metalness: 0.02 });
+    
+    const bottomTier = new THREE.Mesh(new THREE.CylinderGeometry(1.8, 1.9, 0.58, 128), spongeMat);
+    bottomTier.castShadow = true;
+    bottomTier.receiveShadow = true;
+    bottomTier.position.y = 0.29;
+    cakeGroup.add(bottomTier);
+    
+    const middleTier = new THREE.Mesh(new THREE.CylinderGeometry(1.48, 1.52, 0.52, 128), spongeMat2);
+    middleTier.castShadow = true;
+    middleTier.receiveShadow = true;
+    middleTier.position.y = 0.29 + 0.58;
+    cakeGroup.add(middleTier);
+    
+    const topTier = new THREE.Mesh(new THREE.CylinderGeometry(1.12, 1.16, 0.52, 128), spongeMat3);
+    topTier.castShadow = true;
+    topTier.receiveShadow = true;
+    topTier.position.y = 0.29 + 0.58 + 0.52;
+    cakeGroup.add(topTier);
+    
+    const frostingMat = new THREE.MeshStandardMaterial({ color: 0xf5e6d3, roughness: 0.5, metalness: 0.02 });
+    
+    const frostingRing1 = new THREE.Mesh(new THREE.TorusGeometry(1.84, 0.09, 48, 200), frostingMat);
+    frostingRing1.rotation.x = Math.PI / 2;
+    frostingRing1.position.y = 0.29 + 0.58;
+    cakeGroup.add(frostingRing1);
+    
+    const frostingRing2 = new THREE.Mesh(new THREE.TorusGeometry(1.52, 0.09, 48, 200), frostingMat);
+    frostingRing2.rotation.x = Math.PI / 2;
+    frostingRing2.position.y = 0.29 + 1.10;
+    cakeGroup.add(frostingRing2);
+    
+    const frostingTop = new THREE.Mesh(new THREE.TorusGeometry(1.16, 0.09, 48, 200), frostingMat);
+    frostingTop.rotation.x = Math.PI / 2;
+    frostingTop.position.y = 0.29 + 1.62;
+    cakeGroup.add(frostingTop);
+    
+    // Sprinkles
+    const sprinkleColorsReal = [0x8B4513, 0xA0522D, 0xCD853F, 0xD2691E];
+    for (let i = 0; i < 180; i++) {
+        const sprinkle = new THREE.Mesh(new THREE.SphereGeometry(0.04, 8, 8), new THREE.MeshStandardMaterial({ color: sprinkleColorsReal[Math.floor(Math.random() * sprinkleColorsReal.length)] }));
+        let yLayer, radius;
+        const r = Math.random();
+        if (r < 0.34) { yLayer = 0.29 + 0.2; radius = 1.74; }
+        else if (r < 0.67) { yLayer = 0.29 + 0.75; radius = 1.45; }
+        else { yLayer = 0.29 + 1.27; radius = 1.10; }
         const angle = Math.random() * Math.PI * 2;
-        const radius = Math.random() * 80 + 15;
-        const offX = Math.cos(angle) * radius;
-        const offY = Math.sin(angle) * radius;
-        const emoji = emojis[Math.floor(Math.random() * emojis.length)];
-        setTimeout(() => {
-          createFloatingNote(emoji, centerX + offX, centerY + offY);
-        }, i * 35);
-      }
+        const rad = radius * (0.8 + Math.random() * 0.4);
+        sprinkle.position.x = Math.cos(angle) * rad;
+        sprinkle.position.z = Math.sin(angle) * rad;
+        sprinkle.position.y = yLayer + Math.random() * 0.1;
+        sprinkle.castShadow = true;
+        cakeGroup.add(sprinkle);
     }
     
-    // gentle sparkle circles (soft dots)
-    function createSoftSparkle(x, y) {
-      const spark = document.createElement('div');
-      spark.style.position = 'fixed';
-      spark.style.width = Math.random() * 12 + 6 + 'px';
-      spark.style.height = spark.style.width;
-      spark.style.borderRadius = '50%';
-      spark.style.backgroundColor = `hsl(${Math.random() * 30 + 20}, 80%, 70%)`;
-      spark.style.pointerEvents = 'none';
-      spark.style.zIndex = '999';
-      spark.style.left = (x - 8) + 'px';
-      spark.style.top = (y - 8) + 'px';
-      spark.style.opacity = '0.8';
-      spark.style.filter = 'blur(1px)';
-      spark.style.transition = 'transform 0.5s ease-out, opacity 0.6s';
-      document.body.appendChild(spark);
-      requestAnimationFrame(() => {
-        spark.style.transform = `scale(1.6) translate(${(Math.random() - 0.5) * 40}px, ${(Math.random() - 0.5) * 30 - 20}px)`;
-        spark.style.opacity = '0';
-      });
-      setTimeout(() => spark.remove(), 600);
-    }
+    // Candles
+    const candleMatReal = new THREE.MeshStandardMaterial({ color: 0xf0e0c0, roughness: 0.3 });
+    const flameMatReal = new THREE.MeshStandardMaterial({ color: 0xff8833, emissive: 0xff4411, emissiveIntensity: 0.5 });
     
-    function burstSparklesAround(x, y, amount = 10) {
-      for (let i = 0; i < amount; i++) {
-        setTimeout(() => {
-          createSoftSparkle(x + (Math.random() - 0.5) * 80, y + (Math.random() - 0.5) * 70);
-        }, i * 25);
-      }
-    }
-    
-    // generate handwritten style random messages (friend specific)
-    const friendThanksMessages = [
-      "🍃 So glad we're friends! 🍃",
-      "💬 Thank you for being real 💬",
-      "🌼 You made everything lighter 🌼",
-      "📖 Grateful for every chat 📖",
-      "💕 Friends like you are rare 💕",
-      "🎈 You're the best, no drama ever 🎈",
-      "☕ Let's celebrate our friendship! ☕",
-      "🌸 Thanks for all the good vibes 🌸"
+    const candlePositions = [
+        [-0.6, 0.29 + 1.62 + 0.3, 0.5],
+        [0.6, 0.29 + 1.62 + 0.3, 0.5],
+        [0, 0.29 + 1.62 + 0.3, -0.7]
     ];
     
-    // also, a special surprise: additional appreciation floating text on card click (gentle)
-    card.addEventListener('click', (e) => {
-      const rect = card.getBoundingClientRect();
-      if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
-        const x = e.clientX;
-        const y = e.clientY;
-        const randomNote = friendThanksMessages[Math.floor(Math.random() * friendThanksMessages.length)];
-        createFloatingNote(randomNote, x, y);
-        for (let i=0; i<3; i++) {
-          setTimeout(() => createSoftSparkle(x + (Math.random()-0.5)*40, y + (Math.random()-0.5)*30), i*30);
+    const candles = [];
+    const flamesList = [];
+    
+    candlePositions.forEach(pos => {
+        const candleBody = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.115, 0.58, 32), candleMatReal);
+        candleBody.position.set(pos[0], pos[1], pos[2]);
+        candleBody.castShadow = true;
+        cakeGroup.add(candleBody);
+        candles.push(candleBody);
+        
+        const flameGeo = new THREE.ConeGeometry(0.085, 0.16, 16);
+        const flame = new THREE.Mesh(flameGeo, flameMatReal);
+        flame.position.set(pos[0], pos[1] + 0.32, pos[2]);
+        flame.castShadow = true;
+        cakeGroup.add(flame);
+        flamesList.push(flame);
+    });
+    
+    scene.add(cakeGroup);
+    
+    // Floating Birthday Text
+    const textDiv = document.createElement('div');
+    textDiv.textContent = '✨ Happy Birthday Eman ✨';
+    textDiv.style.cssText = 'color:#FFB7C5; font-size:28px; font-weight:600; text-shadow:0 0 15px rgba(0,0,0,0.3); font-family:Dancing Script, cursive; background:rgba(0,0,0,0.3); padding:8px 25px; border-radius:60px; backdrop-filter:blur(8px);';
+    const floatingTitle = new CSS2DObject(textDiv);
+    floatingTitle.position.set(0, 3.3, 0);
+    scene.add(floatingTitle);
+    
+    // Knife
+    const knifeGroup = new THREE.Group();
+    const knifeBlade = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.35, 0.85), new THREE.MeshStandardMaterial({ color: 0xaaaacc, metalness: 0.85, roughness: 0.2 }));
+    knifeBlade.position.set(0, 0.18, 0.42);
+    knifeGroup.add(knifeBlade);
+    const knifeHandle = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 0.32), new THREE.MeshStandardMaterial({ color: 0x7a4a2a, roughness: 0.6 }));
+    knifeHandle.position.set(0, 0.18, -0.22);
+    knifeGroup.add(knifeHandle);
+    knifeGroup.visible = false;
+    scene.add(knifeGroup);
+    
+    // --- Butterflies Array ---
+    const butterflies = [];
+    
+    function createButterfly(x, z) {
+        const group = new THREE.Group();
+        
+        // Wings
+        const wingColor = 0xff88aa;
+        const wingMat = new THREE.MeshStandardMaterial({ color: wingColor, emissive: 0xff4466, emissiveIntensity: 0.3, transparent: true, opacity: 0.9 });
+        
+        const leftWing = new THREE.Mesh(new THREE.ConeGeometry(0.22, 0.35, 16), wingMat);
+        leftWing.rotation.z = -0.5;
+        leftWing.rotation.x = 0.3;
+        leftWing.position.set(-0.22, 0, 0);
+        group.add(leftWing);
+        
+        const rightWing = new THREE.Mesh(new THREE.ConeGeometry(0.22, 0.35, 16), wingMat);
+        rightWing.rotation.z = 0.5;
+        rightWing.rotation.x = 0.3;
+        rightWing.position.set(0.22, 0, 0);
+        group.add(rightWing);
+        
+        // Body
+        const body = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.25, 8), new THREE.MeshStandardMaterial({ color: 0x8B4513 }));
+        body.position.y = -0.05;
+        group.add(body);
+        
+        group.position.set(x, 1.2 + Math.random() * 1.5, z);
+        group.castShadow = true;
+        scene.add(group);
+        
+        return {
+            mesh: group,
+            angle: Math.random() * Math.PI * 2,
+            speed: 0.02 + Math.random() * 0.02,
+            radius: 1 + Math.random() * 3,
+            yOffset: Math.random() * 2,
+            wingAngle: 0
+        };
+    }
+    
+    function releaseButterflies() {
+        const butterflyCount = 25;
+        for (let i = 0; i < butterflyCount; i++) {
+            setTimeout(() => {
+                const angle = Math.random() * Math.PI * 2;
+                const radius = 2 + Math.random() * 4;
+                const x = Math.cos(angle) * radius;
+                const z = Math.sin(angle) * radius;
+                const butterfly = createButterfly(x, z);
+                butterflies.push(butterfly);
+            }, i * 100);
         }
-      }
-    });
+        
+        // Show final love badge
+        document.getElementById('finalLoveBadge').style.display = 'block';
+    }
     
-    // button action: full friend love burst
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const btnRect = btn.getBoundingClientRect();
-      const centerX = btnRect.left + btnRect.width / 2;
-      const centerY = btnRect.top + btnRect.height / 2;
-      
-      // unique effect: floating "thank you friend" notes + emoji burst
-      burstFriendEmojis(centerX, centerY, 24);
-      burstSparklesAround(centerX, centerY, 14);
-      
-      // show custom random message in toast
-      const msg = friendThanksMessages[Math.floor(Math.random() * friendThanksMessages.length)];
-      showFriendlyMessage(msg + " 🌟");
-      
-      // additional friend-special effect: change quote background for a sec
-      const quoteBlock = document.querySelector('.quote-block');
-      quoteBlock.style.transition = 'background 0.2s';
-      quoteBlock.style.backgroundColor = '#fff0e2';
-      setTimeout(() => { quoteBlock.style.backgroundColor = ''; }, 300);
-      
-      // wiggle the polaroids for fun
-      const polaroids = document.querySelectorAll('.polaroid');
-      polaroids.forEach(p => {
-        p.style.transform = 'rotate(0deg) scale(1.02)';
+    // --- State ---
+    let candlesBlown = false;
+    let cakeCut = false;
+    let blowMessageShown = false;
+    
+    // --- Show Blow Message ---
+    function showBlowMessage() {
+        if (blowMessageShown) return;
+        blowMessageShown = true;
+        
+        const popup = document.createElement('div');
+        popup.className = 'message-popup';
+        popup.innerHTML = `
+            <div class="popup-content">
+                <div style="font-size: 4rem;">🕯️💨✨</div>
+                <h1>You Blew the Candles! 🎂</h1>
+                <div class="message-text">
+                    🌟 "May all your wishes come true, my love! 🌟<br><br>
+                    Just like these candles, you light up my world.<br>
+                    Every day with you is a celebration.<br>
+                    I wish you joy, laughter, and endless love."
+                </div>
+                <div class="from-name">💕 With Love, Prit 💕</div>
+                <button class="popup-close" id="closeBlowMsg">❤️ Thank You My Love ❤️</button>
+            </div>
+        `;
+        document.body.appendChild(popup);
+        
+        document.getElementById('closeBlowMsg').addEventListener('click', () => {
+            popup.remove();
+        });
+    }
+    
+    // --- Blow Candles ---
+    function blowCandles() {
+        if (candlesBlown) return;
+        candlesBlown = true;
+        
+        flamesList.forEach(flame => { flame.visible = false; });
+        
+        // Smoke effect
+        for (let i = 0; i < 60; i++) {
+            const smoke = new THREE.Mesh(new THREE.SphereGeometry(0.05 + Math.random() * 0.08, 6), new THREE.MeshStandardMaterial({ color: 0xaaaaaa, transparent: true, opacity: 0.4 }));
+            smoke.position.set(
+                (Math.random() - 0.5) * 1.5,
+                2.0 + Math.random() * 0.8,
+                (Math.random() - 0.5) * 1.5
+            );
+            scene.add(smoke);
+            let life = 0;
+            const interval = setInterval(() => {
+                smoke.position.y += 0.03;
+                smoke.scale.multiplyScalar(0.98);
+                life++;
+                if (life > 50) { clearInterval(interval); scene.remove(smoke); }
+            }, 30);
+        }
+        
+        document.getElementById('blowInstruction').style.opacity = '0';
         setTimeout(() => {
-          p.style.transform = `rotate(var(--rot, 0deg))`;
-        }, 200);
-      });
-      
-      // also make signature text pop
-      const signText = document.querySelector('.signature-text');
-      signText.style.transform = 'scale(1.02)';
-      signText.style.color = '#bc785a';
-      setTimeout(() => {
-        signText.style.transform = '';
-        signText.style.color = '';
-      }, 300);
-      
-      // create a tiny temporary sticker effect near button
-      const thankSticker = document.createElement('div');
-      thankSticker.innerText = '🤍🤍';
-      thankSticker.style.position = 'fixed';
-      thankSticker.style.left = centerX - 15 + 'px';
-      thankSticker.style.top = centerY - 15 + 'px';
-      thankSticker.style.fontSize = '28px';
-      thankSticker.style.pointerEvents = 'none';
-      thankSticker.style.zIndex = '1000';
-      thankSticker.style.opacity = '0.9';
-      thankSticker.style.transition = 'all 0.6s ease';
-      document.body.appendChild(thankSticker);
-      requestAnimationFrame(() => {
-        thankSticker.style.transform = 'translateY(-50px) scale(0.6)';
-        thankSticker.style.opacity = '0';
-      });
-      setTimeout(() => thankSticker.remove(), 700);
+            document.getElementById('blowInstruction').style.display = 'none';
+        }, 500);
+        
+        showBlowMessage();
+    }
+    
+    // --- Show Cake Cut Message ---
+    function showCutMessage() {
+        const popup = document.createElement('div');
+        popup.className = 'message-popup';
+        popup.innerHTML = `
+            <div class="popup-content">
+                <div style="font-size: 4.5rem;">🎂💖🔪✨</div>
+                <h1>Happy Birthday My Beloved Eman!</h1>
+                <div class="message-text">
+                    🌹 "You are the most beautiful gift life has given me. 🌹<br><br>
+                    Every moment with you feels like a dream.<br>
+                    Today, on your birthday, I promise to always stand by you,<br>
+                    to love you more with each passing day, and to make you smile forever.<br><br>
+                    Thank you for being YOU. You are my everything."<br><br>
+                    💍 I can't wait to celebrate all our birthdays together 💍
+                </div>
+                <div class="from-name">💕 Forever Yours 💕<br>~ Prit ~</div>
+                <button class="popup-close" id="closeCutMsg">❤️ I Love You Endlessly ❤️</button>
+            </div>
+        `;
+        document.body.appendChild(popup);
+        
+        document.getElementById('closeCutMsg').addEventListener('click', () => {
+            popup.remove();
+            createCelebrationEffects();
+            // Show butterfly button after message closes
+            document.getElementById('butterflyBtn').style.display = 'block';
+        });
+    }
+    
+    function createCelebrationEffects() {
+        // Hearts
+        for (let i = 0; i < 120; i++) {
+            setTimeout(() => {
+                const heart = document.createElement('div');
+                heart.innerHTML = ['❤️', '💖', '💗', '💕', '💘'][Math.floor(Math.random() * 5)];
+                heart.style.position = 'fixed';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.top = '-50px';
+                heart.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
+                heart.style.pointerEvents = 'none';
+                heart.style.zIndex = '2000';
+                heart.style.animation = `heartRain 2.5s linear forwards`;
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 2500);
+            }, i * 40);
+        }
+        
+        // Confetti
+        for (let i = 0; i < 150; i++) {
+            setTimeout(() => {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = ['🎉', '🎊', '✨', '🎂', '💖'][Math.floor(Math.random() * 5)];
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = '-20px';
+                confetti.style.fontSize = (1 + Math.random() * 1.2) + 'rem';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.zIndex = '2000';
+                confetti.style.animation = `confettiFall 1.8s ease-out forwards`;
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 2000);
+            }, i * 30);
+        }
+    }
+    
+    // --- Cake Cutting Animation ---
+    async function performCut() {
+        if (cakeCut) return;
+        cakeCut = true;
+        
+        playMusic();
+        
+        knifeGroup.visible = true;
+        knifeGroup.position.set(0.8, 1.5, 0.5);
+        
+        for (let i = 0; i < 28; i++) {
+            const t = i / 28;
+            knifeGroup.position.x = 0.8 - t * 1.6;
+            knifeGroup.position.z = 0.5 - t * 0.7;
+            knifeGroup.rotation.z = t * 0.7;
+            await new Promise(r => setTimeout(r, 32));
+        }
+        
+        knifeGroup.visible = false;
+        
+        bottomTier.visible = false;
+        middleTier.visible = false;
+        topTier.visible = false;
+        frostingRing1.visible = false;
+        frostingRing2.visible = false;
+        frostingTop.visible = false;
+        candles.forEach(c => c.visible = false);
+        flamesList.forEach(f => f.visible = false);
+        
+        // Cake crumbs
+        for (let i = 0; i < 350; i++) {
+            const piece = new THREE.Mesh(new THREE.BoxGeometry(0.08 + Math.random() * 0.14, 0.07 + Math.random() * 0.12, 0.08 + Math.random() * 0.14), new THREE.MeshStandardMaterial({ color: 0xd4a574 }));
+            piece.position.set((Math.random() - 0.5) * 2.8, 0.3 + Math.random() * 2.2, (Math.random() - 0.5) * 2.8);
+            piece.castShadow = true;
+            scene.add(piece);
+            const vel = { x: (Math.random() - 0.5) * 0.22, y: Math.random() * 0.28 + 0.12, z: (Math.random() - 0.5) * 0.22 };
+            let life = 0;
+            const interval = setInterval(() => {
+                piece.position.x += vel.x;
+                piece.position.y += vel.y;
+                piece.position.z += vel.z;
+                vel.y -= 0.009;
+                life++;
+                if (life > 70) { clearInterval(interval); scene.remove(piece); }
+            }, 16);
+        }
+        
+        // Sparkles
+        const sparkleCount = 800;
+        const sparkleGeo = new THREE.BufferGeometry();
+        const sparklePos = new Float32Array(sparkleCount * 3);
+        for (let i = 0; i < sparkleCount; i++) {
+            sparklePos[i*3] = (Math.random() - 0.5) * 3;
+            sparklePos[i*3+1] = Math.random() * 2.5;
+            sparklePos[i*3+2] = (Math.random() - 0.5) * 3;
+        }
+        sparkleGeo.setAttribute('position', new THREE.BufferAttribute(sparklePos, 3));
+        const sparkles = new THREE.Points(sparkleGeo, new THREE.PointsMaterial({ color: 0xffaa77, size: 0.045, blending: THREE.AdditiveBlending }));
+        scene.add(sparkles);
+        setTimeout(() => scene.remove(sparkles), 900);
+        
+        setTimeout(() => showCutMessage(), 500);
+        
+        const burstLight = new THREE.PointLight(0xff6688, 1.8, 12);
+        burstLight.position.set(0, 1.5, 0);
+        scene.add(burstLight);
+        setTimeout(() => scene.remove(burstLight), 1800);
+    }
+    
+    // --- CSS Animations ---
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = `
+        @keyframes heartRain { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+        @keyframes confettiFall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(540deg); opacity: 0; } }
+    `;
+    document.head.appendChild(styleSheet);
+    
+    // --- Event Listeners ---
+    document.getElementById('cutCakeBtn').addEventListener('click', () => {
+        if (!candlesBlown) {
+            alert('💨 First blow the candles! Click on the candle flames! 💨');
+            return;
+        }
+        performCut();
+        const btn = document.getElementById('cutCakeBtn');
+        btn.disabled = true;
+        btn.textContent = '🎉 CAKE CUT! 🎉';
     });
     
-    // load effect: friendly welcome toast, also a small floating thanks
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        showFriendlyMessage("💛 Hey friend! This is all for you. 💛");
-      }, 400);
-      
-      // initial gentle sparkles inside card area
-      const cardRect = card.getBoundingClientRect();
-      const cardMidX = cardRect.left + cardRect.width/2;
-      const cardMidY = cardRect.top + cardRect.height/2;
-      for (let i=0; i<8; i++) {
-        setTimeout(() => {
-          createSoftSparkle(cardMidX + (Math.random()-0.5)*150, cardMidY + (Math.random()-0.5)*100);
-        }, i * 70);
-      }
-      
-      // add a unique personal touch: after load, show little floating 'friend' emojis
-      setTimeout(() => {
-        const headerRect = document.querySelector('.friend-header').getBoundingClientRect();
-        burstFriendEmojis(headerRect.left + headerRect.width/2, headerRect.top + 20, 6);
-      }, 800);
+    document.getElementById('butterflyBtn').addEventListener('click', () => {
+        releaseButterflies();
+        const btn = document.getElementById('butterflyBtn');
+        btn.disabled = true;
+        btn.textContent = '🦋 Butterflies Flying! 🦋';
+        btn.style.opacity = '0.7';
     });
     
-    // hover effect on polaroids to make them extra friendly
-    const allPolaroids = document.querySelectorAll('.polaroid');
-    allPolaroids.forEach(p => {
-      p.addEventListener('mouseenter', (e) => {
-        const rect = p.getBoundingClientRect();
-        const msg = ['✨ thanks!', '🌸 you rock', '🍃 friend', '💕 true', '🌟 best'];
-        const randomMsg = msg[Math.floor(Math.random() * msg.length)];
-        createFloatingNote(randomMsg, rect.left + rect.width/2, rect.top - 8);
-      });
+    // Raycaster for candle blowing
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    
+    window.addEventListener('click', (event) => {
+        if (candlesBlown) return;
+        
+        mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+        mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+        
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObjects(flamesList);
+        
+        if (intersects.length > 0) {
+            blowCandles();
+        }
     });
     
-    // also on letter body double click for fun
-    const letter = document.querySelector('.letter-body');
-    letter.addEventListener('dblclick', (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-      createFloatingNote("🙌 forever grateful 🙌", x, y);
-      burstSparklesAround(x, y, 5);
+    // --- Animation Loop ---
+    let time = 0;
+    function animate() {
+        requestAnimationFrame(animate);
+        time += 0.012;
+        
+        cakeGroup.rotation.y = Math.sin(time * 0.18) * 0.04;
+        cakeGroup.position.y = Math.sin(time * 1.2) * 0.006;
+        floatingTitle.position.y = 3.35 + Math.sin(time * 1.4) * 0.012;
+        starsField.rotation.y += 0.001;
+        
+        // Animate flames
+        if (!candlesBlown) {
+            flamesList.forEach((flame, idx) => {
+                flame.scale.setScalar(0.85 + Math.sin(time * 18 + idx) * 0.2);
+            });
+        }
+        
+        // Animate butterflies
+        butterflies.forEach(butterfly => {
+            butterfly.angle += butterfly.speed;
+            butterfly.mesh.position.x = Math.cos(butterfly.angle) * butterfly.radius;
+            butterfly.mesh.position.z = Math.sin(butterfly.angle) * butterfly.radius;
+            butterfly.mesh.position.y = 1.2 + Math.sin(time * 3 + butterfly.angle) * 0.3;
+            // Flapping wings
+            butterfly.wingAngle = Math.sin(time * 12) * 0.8;
+            if (butterfly.mesh.children[0]) butterfly.mesh.children[0].rotation.z = -0.5 + butterfly.wingAngle * 0.5;
+            if (butterfly.mesh.children[1]) butterfly.mesh.children[1].rotation.z = 0.5 - butterfly.wingAngle * 0.5;
+        });
+        
+        camera.position.x = 5.5 + Math.sin(time * 0.12) * 0.12;
+        camera.lookAt(0, 1.6, 0);
+        
+        effectComposer.render();
+        labelRenderer.render(scene, camera);
+    }
+    
+    animate();
+    
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        effectComposer.setSize(window.innerWidth, window.innerHeight);
+        labelRenderer.setSize(window.innerWidth, window.innerHeight);
     });
-  })();
+    
+    initMusic();
 </script>
 </body>
 </html>
